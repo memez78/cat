@@ -1,0 +1,137 @@
+:root {
+    /* Primary colors */
+    --primary-color: #4a90e2;
+    --primary-color-light: #6ba5e7;
+    --primary-color-dark: #357abd;
+    
+    /* Secondary colors */
+    --secondary-color: #7c4dff;
+    --secondary-color-light: #9670ff;
+    --secondary-color-dark: #6236cc;
+    
+    /* Accent colors */
+    --accent-color: #ff6b6b;
+    --accent-color-light: #ff8787;
+    --accent-color-dark: #ff4f4f;
+    
+    /* Background colors */
+    --background-color: #ffffff;
+    --background-color-alt: #f8f9fa;
+    --background-color-dark: #343a40;
+    
+    /* Text colors */
+    --text-color: #212529;
+    --text-color-light: #6c757d;
+    --text-color-dark: #000000;
+    --text-color-inverse: #ffffff;
+    
+    /* Border colors */
+    --border-color: #dee2e6;
+    --border-color-light: #e9ecef;
+    --border-color-dark: #ced4da;
+    
+    /* Status colors */
+    --success-color: #28a745;
+    --success-color-light: #d4edda;
+    --warning-color: #ffc107;
+    --warning-color-light: #fff3cd;
+    --error-color: #dc3545;
+    --error-color-light: #f8d7da;
+    --info-color: #17a2b8;
+    --info-color-light: #d1ecf1;
+    
+    /* Shadow effects */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    
+    /* Border radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    --border-radius-full: 9999px;
+    
+    /* Font sizes */
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 24px;
+    --font-size-2xl: 32px;
+    
+    /* Font weights */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+    
+    /* Line heights */
+    --line-height-tight: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+    
+    /* Transitions */
+    --transition-fast: 150ms;
+    --transition-normal: 300ms;
+    --transition-slow: 500ms;
+    
+    /* Z-index layers */
+    --z-index-dropdown: 1000;
+    --z-index-sticky: 1020;
+    --z-index-fixed: 1030;
+    --z-index-modal-backdrop: 1040;
+    --z-index-modal: 1050;
+    --z-index-popover: 1060;
+    --z-index-tooltip: 1070;
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --background-color-alt: #2d2d2d;
+    --text-color: #ffffff;
+    --text-color-light: #a0a0a0;
+    --text-color-dark: #f0f0f0;
+    --text-color-inverse: #000000;
+    --border-color: #404040;
+    --border-color-light: #505050;
+    --border-color-dark: #606060;
+    
+    /* Adjust status colors for dark theme */
+    --success-color-light: rgba(40, 167, 69, 0.2);
+    --warning-color-light: rgba(255, 193, 7, 0.2);
+    --error-color-light: rgba(220, 53, 69, 0.2);
+    --info-color-light: rgba(23, 162, 184, 0.2);
+    
+    /* Adjust shadows for dark theme */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* High contrast theme variables */
+[data-theme="high-contrast"] {
+    --primary-color: #0066cc;
+    --primary-color-light: #0080ff;
+    --primary-color-dark: #004d99;
+    --text-color: #000000;
+    --text-color-light: #333333;
+    --text-color-inverse: #ffffff;
+    --background-color: #ffffff;
+    --background-color-alt: #f0f0f0;
+    --border-color: #000000;
+    --border-color-light: #333333;
+    --border-color-dark: #666666;
+    
+    /* Increase contrast for status colors */
+    --success-color: #006600;
+    --warning-color: #cc6600;
+    --error-color: #cc0000;
+    --info-color: #006699;
+} 

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000033">
+    <meta name="description" content="Learn cybersecurity through fun interactive games with Cyber Cat">
+    <title>Cyber Cat - Cybersecurity Learning Game</title>
+    
+    <!-- Manifest and Icons -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="assets/images/icon-192.png">
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/utilities.css">
+    
+    <!-- Component Styles -->
+    <link rel="stylesheet" href="css/components/toast.css">
+    <link rel="stylesheet" href="css/components/welcome.css">
+    <link rel="stylesheet" href="css/screens.css">
+    <link rel="stylesheet" href="css/missions.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Preload assets -->
+    <link rel="preload" as="image" href="assets/images/cyber_cat.png">
+    <link rel="preload" as="image" href="assets/images/background.png">
+    <link rel="preload" as="audio" href="assets/sounds/click.mp4">
+    
+    <!-- Meta tags for SEO -->
+    <meta name="keywords" content="cybersecurity, education, games, children, learning">
+    <meta name="author" content="Cyber Cat Team">
+    <meta property="og:title" content="Cyber Cat - Learn Cybersecurity Through Games">
+    <meta property="og:description" content="Fun and interactive way to learn cybersecurity concepts">
+    <meta property="og:image" content="assets/images/og-image.png">
+    <meta property="og:type" content="website">
+    
+    <!-- iOS specific -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <!-- Main app container -->
+    <div id="app"></div>
+
+    <!-- Scripts -->
+    <script type="module">
+        // Import main app
+        import { App } from './js/app.js';
+        
+        // Global error handler
+        window.onerror = function(message, source, lineno, colno, error) {
+            console.error('Global error:', { message, source, lineno, colno, error });
+            // Error will be handled by ErrorBoundary component
+        };
+
+        // Initialize app when DOM is ready
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                window.app = new App();
+            } catch (error) {
+                console.error('App initialization error:', error);
+            }
+        });
+
+        // Register service worker
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', async () => {
+                try {
+                    const registration = await navigator.serviceWorker.register('/sw.js');
+                    console.log('ServiceWorker registered:', registration);
+                } catch (error) {
+                    console.error('ServiceWorker registration failed:', error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

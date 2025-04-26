@@ -1,0 +1,567 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Press+Start+2P&display=swap');
+
+/* CSS Variables */
+:root {
+  --color-bg: #000033;
+  --color-primary: #00ffff;
+  --color-secondary: #9933ff;
+  --color-accent: #ff3366;
+  --color-success: #33ff99;
+  --color-warning: #ffcc00;
+  --color-text: #ffffff;
+  --font-heading: 'Press Start 2P', cursive;
+  --font-body: 'Nunito', sans-serif;
+  --border-radius: 15px;
+  --nav-height: 70px;
+}
+
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+/* Background with parallax starfield effect */
+.starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('../assets/images/background.png') center/cover no-repeat;
+  z-index: -1;
+  animation: parallax 60s infinite linear;
+}
+
+/* Modern Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  background: rgba(0, 0, 51, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+  transform: scale(1.1);
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+  padding: 0.5rem 1rem;
+  color: var(--color-text);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+  color: var(--color-primary);
+}
+
+.nav-item.active {
+  color: var(--color-primary);
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-primary);
+  animation: glow 2s infinite;
+}
+
+/* Profile Badge */
+.profile-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.profile-badge:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.profile-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+}
+
+.profile-name {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.profile-level {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+/* Mission Card */
+.mission-card {
+  background: rgba(0, 0, 51, 0.9);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  border: 1px solid var(--color-primary);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--color-primary);
+}
+
+.mission-difficulty {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.difficulty-easy {
+  background: var(--color-success);
+  color: var(--color-bg);
+}
+
+.difficulty-medium {
+  background: var(--color-warning);
+  color: var(--color-bg);
+}
+
+.difficulty-hard {
+  background: var(--color-accent);
+  color: var(--color-text);
+}
+
+.mission-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.mission-title {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.mission-description {
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.mission-rewards {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+}
+
+.reward-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.reward-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Progress Bar */
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0.5rem 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+/* Achievement Badge */
+.achievement-badge {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(0, 0, 51, 0.9);
+  border: 2px solid var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.achievement-badge:hover {
+  transform: scale(1.1);
+}
+
+.achievement-badge.locked {
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+
+.achievement-icon {
+  width: 50%;
+  height: 50%;
+}
+
+/* Game Elements with Better Styling */
+.cyber-cat {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 10px var(--color-primary));
+}
+
+.virus {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  animation: bounce 1s infinite;
+  filter: drop-shadow(0 0 5px var(--color-accent));
+}
+
+.shield {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+  animation: shield-glow 2s infinite;
+  filter: drop-shadow(0 0 10px var(--color-secondary));
+}
+
+/* Animations */
+@keyframes parallax {
+  from { background-position: 0 0; }
+  to { background-position: 100% 100%; }
+}
+
+@keyframes glow {
+  0% { box-shadow: 0 0 5px var(--color-primary); }
+  50% { box-shadow: 0 0 20px var(--color-primary); }
+  100% { box-shadow: 0 0 5px var(--color-primary); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+
+@keyframes shield-glow {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 5px var(--color-secondary)); }
+  50% { filter: brightness(1.5) drop-shadow(0 0 15px var(--color-secondary)); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 51, 0.95);
+    padding: 1rem;
+    justify-content: space-around;
+    border-top: 2px solid var(--color-primary);
+  }
+  
+  .nav-item {
+    font-size: 0.6rem;
+    padding: 0.3rem;
+  }
+  
+  .profile-badge {
+    padding: 0.3rem 0.8rem;
+  }
+  
+  .mission-card {
+    padding: 1rem;
+  }
+}
+
+/* Welcome Screen */
+.welcome-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 2rem;
+  animation: glow 2s infinite;
+}
+
+.welcome-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--color-primary);
+}
+
+.button-container {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* Game UI Elements */
+.game-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  aspect-ratio: 16/9;
+  background: rgba(0, 0, 51, 0.8);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.score-display {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--color-primary);
+}
+
+/* Chat Styles */
+.chat-container {
+  height: 70vh;
+  background: rgba(0, 0, 51, 0.8);
+  border-radius: 15px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.chat-message {
+  margin-bottom: 1rem;
+  padding: 0.8rem 1.2rem;
+  border-radius: 15px;
+  max-width: 80%;
+}
+
+.user-message {
+  background: var(--color-primary);
+  color: var(--color-bg);
+  margin-left: auto;
+}
+
+.ai-message {
+  background: var(--color-secondary);
+  color: var(--color-text);
+  margin-right: auto;
+}
+
+.chat-form {
+  display: flex;
+  gap: 1rem;
+}
+
+.chat-form .input {
+  margin-bottom: 0;
+}
+
+/* Game Over Screen */
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 51, 0.95);
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  border: 2px solid var(--color-primary);
+  animation: glow 2s infinite;
+}
+
+.game-over h2 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.game-over p {
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+/* Parent Dashboard */
+.dashboard-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.dashboard-card {
+  background: rgba(0, 0, 51, 0.8);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid var(--color-primary);
+}
+
+.dashboard-card h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.dashboard-stat {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+/* Shop Items */
+.shop-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.shop-item {
+  background: rgba(0, 0, 51, 0.8);
+  border-radius: 15px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid var(--color-primary);
+  transition: all 0.3s ease;
+}
+
+.shop-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px var(--color-primary);
+}
+
+.shop-item img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1rem;
+}
+
+.shop-item h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.shop-item .price {
+  color: var(--color-secondary);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Screen Title */
+.screen-title {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+}
+
+/* Setup Forms */
+.setup-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(0, 0, 51, 0.8);
+  border-radius: 15px;
+  border: 1px solid var(--color-primary);
+}
+
+/* Nav Content */
+.nav-score {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  font-size: 0.8rem;
+} 

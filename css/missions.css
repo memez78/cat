@@ -1,0 +1,309 @@
+/* Missions System Styles */
+:root {
+    --mission-primary: #4a90e2;
+    --mission-secondary: #f39c12;
+    --mission-success: #2ecc71;
+    --mission-danger: #e74c3c;
+    --mission-light: #ecf0f1;
+    --mission-dark: #2c3e50;
+    --mission-card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --mission-hover-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    --mission-border-radius: 12px;
+    --mission-spacing: 20px;
+}
+
+/* Missions Container */
+#missions {
+    padding: var(--mission-spacing);
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Mission Cards Grid */
+#missionsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--mission-spacing);
+    padding: var(--mission-spacing) 0;
+}
+
+/* Mission Card */
+.mission-card {
+    background: white;
+    border-radius: var(--mission-border-radius);
+    box-shadow: var(--mission-card-shadow);
+    padding: var(--mission-spacing);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.mission-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--mission-hover-shadow);
+}
+
+.mission-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--mission-primary);
+    transition: transform 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.mission-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Mission Card Header */
+.mission-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.mission-header h3 {
+    margin: 0;
+    color: var(--mission-dark);
+    font-size: 1.25rem;
+}
+
+/* Difficulty Badge */
+.difficulty-badge {
+    background: var(--mission-secondary);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Mission Description */
+.mission-card p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+/* Mission Progress */
+.mission-progress {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* Start Mission Button */
+.start-mission-btn {
+    background: var(--mission-primary);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.start-mission-btn:hover {
+    background: #357abd;
+}
+
+/* Completed Badge */
+.completed-badge {
+    background: var(--mission-success);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Mission Details */
+#missionDetails {
+    background: white;
+    border-radius: var(--mission-border-radius);
+    box-shadow: var(--mission-card-shadow);
+    padding: var(--mission-spacing);
+    margin-bottom: var(--mission-spacing);
+}
+
+#missionDetails h2 {
+    color: var(--mission-dark);
+    margin-top: 0;
+    border-bottom: 2px solid var(--mission-light);
+    padding-bottom: 10px;
+}
+
+.mission-description {
+    color: #666;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.mission-objectives,
+.mission-tips,
+.mission-rewards {
+    margin: 20px 0;
+}
+
+.mission-objectives h3,
+.mission-tips h3,
+.mission-rewards h3 {
+    color: var(--mission-dark);
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.mission-objectives ul,
+.mission-tips ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.mission-objectives li,
+.mission-tips li {
+    padding: 8px 0;
+    padding-left: 24px;
+    position: relative;
+}
+
+.mission-objectives li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--mission-success);
+}
+
+.mission-tips li::before {
+    content: '💡';
+    position: absolute;
+    left: 0;
+}
+
+/* Reward Animation */
+.reward-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    animation: rewardPopup 3s ease-in-out forwards;
+}
+
+.reward-content {
+    background: white;
+    padding: 30px;
+    border-radius: var(--mission-border-radius);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.reward-content h3 {
+    color: var(--mission-success);
+    margin: 0 0 15px 0;
+    font-size: 1.5rem;
+}
+
+.reward-content p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: var(--mission-dark);
+}
+
+/* Level Up Animation */
+.level-up-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    animation: levelUpPopup 3s ease-in-out forwards;
+}
+
+.level-up-content {
+    background: linear-gradient(135deg, var(--mission-primary), var(--mission-secondary));
+    padding: 40px;
+    border-radius: var(--mission-border-radius);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    color: white;
+}
+
+.level-up-content h2 {
+    margin: 0 0 15px 0;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+.level-up-content p {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Animations */
+@keyframes rewardPopup {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    10% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    90% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+}
+
+@keyframes levelUpPopup {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    10% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+    20% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    90% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #missionsList {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    #missionDetails {
+        margin: 10px;
+    }
+} 

@@ -1,0 +1,75 @@
+{
+  "name": "Cyber Cat - Cybersecurity Learning Game",
+  "short_name": "Cyber Cat",
+  "description": "Learn cybersecurity through fun mini-games with Cyber Cat!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000033",
+  "theme_color": "#000033",
+  "orientation": "portrait",
+  "categories": ["education", "games", "security"],
+  "icons": [
+    {
+      "src": "assets/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "apple touch icon"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "assets/images/screenshot1.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Homescreen of Cyber Cat"
+    },
+    {
+      "src": "assets/images/screenshot2.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "platform": "wide",
+      "label": "Mission screen of Cyber Cat"
+    }
+  ],
+  "prefer_related_applications": true,
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.cybercat.app",
+      "id": "com.cybercat.app"
+    },
+    {
+      "platform": "itunes",
+      "url": "https://apps.apple.com/app/cybercat/id123456789"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start Mission",
+      "short_name": "Mission",
+      "description": "Start a new cybersecurity mission",
+      "url": "/?action=mission",
+      "icons": [{ "src": "assets/images/mission-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "View Profile",
+      "short_name": "Profile",
+      "description": "View your profile and progress",
+      "url": "/?action=profile",
+      "icons": [{ "src": "assets/images/profile-icon.png", "sizes": "96x96" }]
+    }
+  ]
+} 
