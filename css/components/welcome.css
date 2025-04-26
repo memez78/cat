@@ -1,0 +1,289 @@
+/* Welcome Screen Styles */
+.welcome-screen {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-dark) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated Background */
+.welcome-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/assets/images/pattern.svg');
+    opacity: 0.1;
+    animation: patternFloat 60s linear infinite;
+}
+
+/* Welcome Content */
+.welcome-content {
+    position: relative;
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    animation: contentFadeIn 1s ease-out;
+}
+
+.welcome-logo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 2rem;
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+.welcome-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.welcome-description {
+    font-size: 1.2rem;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+/* User Type Selection */
+.user-type-selection {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    animation: contentFadeIn 0.5s ease-out;
+}
+
+.user-type-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.user-type-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.user-type-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 32px rgba(0, 255, 255, 0.2);
+}
+
+.user-type-card img {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.user-type-card:hover img {
+    transform: scale(1.1);
+}
+
+.user-type-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.user-type-card p {
+    color: var(--color-text);
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* Installation Prompt */
+.install-prompt,
+.notification-prompt {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    animation: slideUp 0.5s ease-out;
+}
+
+.install-prompt p,
+.notification-prompt p {
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+/* Account Creation Form */
+.create-account {
+    width: 100%;
+    max-width: 500px;
+    animation: contentFadeIn 0.5s ease-out;
+}
+
+.account-form {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: var(--color-primary);
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+/* Parent Setup Form */
+.parent-setup {
+    width: 100%;
+    max-width: 600px;
+    animation: contentFadeIn 0.5s ease-out;
+}
+
+.safety-settings {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+}
+
+.setting-group {
+    margin-bottom: 1.5rem;
+}
+
+.setting-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.time-settings {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+}
+
+/* Animations */
+@keyframes contentFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes logoFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes patternFloat {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .welcome-title {
+        font-size: 2rem;
+    }
+
+    .user-type-options {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-content,
+    .account-form,
+    .parent-setup {
+        padding: 1.5rem;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .welcome-screen {
+        background: linear-gradient(135deg, var(--color-bg) 0%, #000 100%);
+    }
+
+    .form-group input {
+        background: rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .welcome-screen::before {
+        opacity: 0.05;
+    }
+
+    .user-type-card {
+        border: 2px solid var(--color-text);
+    }
+
+    .form-group input {
+        border: 2px solid var(--color-text);
+    }
+} 
